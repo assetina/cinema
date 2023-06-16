@@ -1,0 +1,27 @@
+<!-- Vue (views/default/show_entry.html) -->
+{{extend 'layout.html'}}
+
+
+<style>
+.entry-details {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+
+.entry-details img {
+  max-width: 300px; /* Définissez la largeur maximale souhaitée */
+  max-height: 200px; /* Définissez la hauteur maximale souhaitée */
+}
+</style>
+<h1>Détails de l'entrée</h1>
+
+<div class="entry-details">
+    <h2>{{=details.numero_affiche}}</h2>
+    <p><strong>ID :</strong> {{=details.id}}</p>
+    <p><img src="{{=URL('default', 'download', args=details.image)}}" alt="Image"></p>
+    <p><strong>Date projection :</strong> {{=details.date_projection}}</p>
+    <!-- Ajoutez d'autres informations spécifiques à votre entité -->
+</div>

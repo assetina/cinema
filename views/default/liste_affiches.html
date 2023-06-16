@@ -1,0 +1,40 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+  <div class="container center">
+    <h1 class="display-5">Gestion des affiches</h1>
+  </div>
+</div>
+{{end}}
+
+<a href="{{=URL('default','ajouter_affiche')}}" class="btn btn-success">Ajouter une affiche</a><br/><br/>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Numero de l'affiche</th>
+      <th>Date de projection</th>
+      <!--<th>Image</th>-->
+      <th>Film</th>
+      
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{for affiche in affiches: }}
+      <tr>
+        <td>{{= affiche.numero_affiche }}</td>
+        <td>{{= affiche.date_projection }}</td>
+        <!--<td>{{= affiche.image }}</td>-->
+        <!--<img src="{{=URL('default', 'download', args=affiche.image)}}" alt="Image">-->
+        <td>{{= affiche.film_id }}</td>
+       
+        <td>
+          <a href="{{=URL('default','modifier_affiche', args=affiche.id)}}" class="btn btn-warning">Modifier</a>
+          <a href="{{=URL('default','supprimer_affiche', args=affiche.id)}}" class="btn btn-danger">Supprimer</a>
+          <a href="{{=URL('default','voir_affiche', args=affiche.id)}}" class="btn btn-info">voir plus</a>
+        </td>
+      </tr>
+    {{ pass }}
+  </tbody>
+</table>

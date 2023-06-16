@@ -1,0 +1,34 @@
+<h2>Connexion</h2>
+<form method="post" action="{{=URL('default', 'user', args='login')}}" autocomplete="off">
+  <p>
+    <label for="auth_user_email">Adresse e-mail :</label>
+    <input type="email" id="auth_user_email" name="email" required>
+  </p>
+  <p>
+    <label for="auth_user_password">Mot de passe :</label>
+    <input type="password" id="auth_user_password" name="password" required>
+  </p>
+  <p>
+    <label for="auth_user_remember_me">Se souvenir de moi :</label>
+    <input type="checkbox" id="auth_user_remember_me" name="remember" value="on">
+  </p>
+  <p>
+    <input type="submit" id="auth_user_submit" value="Se connecter">
+  </p>
+</form>
+
+
+<h2>Inscription</h2>
+<form method="post" action="{{=URL('default', 'user', args='register')}}" autocomplete="off">
+  <p>
+    <label for="auth_user_email">Adresse e-mail :</label>
+    <input type="email" id="auth_user_email" name="email" required>
+  </p>
+  <p>
+    <label for="auth_user_password">Mot de passe :</label>
+    <input type="password" id="auth_user_password" name="password" required>
+  </p>
+  <p>
+    <input type="submit" id="auth_user_submit" value="S'inscrire">
+  </p>
+</form>

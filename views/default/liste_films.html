@@ -1,0 +1,40 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+  <div class="container center">
+    <h1 class="display-5">Gestion des films</h1>
+  </div>
+</div>
+{{end}}
+
+<a href="{{=URL('default','ajouter_film')}}" class="btn btn-success">Ajouter une film</a><br/><br/>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Date de sortie</th>
+      <th>Réalisateur</th>
+      <th>Durée</th>
+      
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{for film in films: }}
+      <tr>
+        <td>{{= film.titre }}</td>
+        <td>{{= film.description }}</td>
+        <td>{{= film.date_sortie }}</td>
+        <td>{{= film.realisateur }}</td>
+        <td>{{= film.duree }}</td>
+       
+        <td>
+          <a href="{{=URL('default','modifier_film', args=film.id)}}" class="btn btn-warning">Modifier</a>
+          <a href="{{=URL('default','supprimer_film', args=film.id)}}" class="btn btn-danger">Supprimer</a>
+        </td>
+      </tr>
+    {{ pass }}
+  </tbody>
+</table>

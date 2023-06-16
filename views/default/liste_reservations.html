@@ -1,0 +1,38 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+  <div class="container center">
+    <h1 class="display-5">Gestion des reservations</h1>
+  </div>
+</div>
+{{end}}
+
+<a href="{{=URL('default','ajouter_reservation')}}" class="btn btn-success">Ajouter une reservation</a><br/><br/>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nombre de places</th>
+      <th>Affiche</th>
+      <th>Utilisateur</th>
+      
+      
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{for reservation in reservations: }}
+      <tr>
+        <td>{{= reservation.nombre_places }}</td>
+        <td>{{= reservation.affiche_id }}</td>
+        <td>{{= reservation.utilisateur_id }}</td>
+        
+       
+        <td>
+          <a href="{{=URL('default','modifier_reservation', args=reservation.id)}}" class="btn btn-warning">Modifier</a>
+          <a href="{{=URL('default','supprimer_reservation', args=reservation.id)}}" class="btn btn-danger">Supprimer</a>
+        </td>
+      </tr>
+    {{ pass }}
+  </tbody>
+</table>
